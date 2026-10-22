@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper-cream: #FFF8EF;
+  --color-blush: #F5DCE3;
+  --color-dusty-rose: #D99AAE;
+  --color-lavender: #DCD7F7;
+  --color-midnight: #252747;
+  --color-midnight-deep: #16172E;
+  --color-warm-ink: #67505A;
+  --color-pale-gold: #E9C98B;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-hand: "Caveat", cursive;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Paper & Scrapbook Aesthetics */
+.paper-texture {
+  background-color: #FFF8EF;
+  background-image: radial-gradient(rgba(103, 80, 90, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.paper-grid {
+  background-color: #FAF4EB;
+  background-image: 
+    linear-gradient(to right, rgba(217, 154, 174, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 154, 174, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.paper-dots {
+  background-color: #FFFDF9;
+  background-image: radial-gradient(rgba(217, 154, 174, 0.28) 1.5px, transparent 0);
+  background-size: 18px 18px;
+}
+
+.night-sky {
+  background: radial-gradient(circle at 50% 20%, #2e3058 0%, #20223e 50%, #15162a 100%);
+}
+
+.washi-tape {
+  background: rgba(245, 220, 227, 0.88);
+  box-shadow: 0 1px 3px rgba(103, 80, 90, 0.15);
+  backdrop-filter: blur(2px);
+  border-left: 1px dashed rgba(217, 154, 174, 0.5);
+  border-right: 1px dashed rgba(217, 154, 174, 0.5);
+}
+
+.washi-tape-lavender {
+  background: rgba(220, 215, 247, 0.88);
+  box-shadow: 0 1px 3px rgba(103, 80, 90, 0.15);
+  backdrop-filter: blur(2px);
+  border-left: 1px dashed rgba(160, 150, 220, 0.5);
+  border-right: 1px dashed rgba(160, 150, 220, 0.5);
+}
+
+.washi-tape-gold {
+  background: rgba(233, 201, 139, 0.85);
+  box-shadow: 0 1px 3px rgba(103, 80, 90, 0.15);
+  backdrop-filter: blur(2px);
+  border-left: 1px dashed rgba(180, 150, 80, 0.5);
+  border-right: 1px dashed rgba(180, 150, 80, 0.5);
+}
+
+.polaroid-shadow {
+  box-shadow: 
+    0 12px 28px -6px rgba(103, 80, 90, 0.14),
+    0 8px 10px -6px rgba(103, 80, 90, 0.08),
+    0 0 0 1px rgba(103, 80, 90, 0.05);
+}
+
+.letter-shadow {
+  box-shadow: 
+    0 22px 40px -12px rgba(103, 80, 90, 0.16),
+    0 2px 6px rgba(103, 80, 90, 0.06),
+    0 0 0 1px rgba(103, 80, 90, 0.04);
+}
+
+/* Torn paper edge effect */
+.torn-edge-bottom {
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% calc(100% - 10px),
+    95% 100%, 90% calc(100% - 8px), 85% 100%, 80% calc(100% - 6px),
+    75% 100%, 70% calc(100% - 9px), 65% 100%, 60% calc(100% - 6px),
+    55% 100%, 50% calc(100% - 8px), 45% 100%, 40% calc(100% - 7px),
+    35% 100%, 30% calc(100% - 8px), 25% 100%, 20% calc(100% - 6px),
+    15% 100%, 10% calc(100% - 9px), 5% 100%, 0% calc(100% - 6px)
+  );
+}
+
+.torn-edge-top {
+  clip-path: polygon(
+    0% 10px, 5% 0px, 10% 9px, 15% 0px, 20% 7px,
+    25% 0px, 30% 8px, 35% 0px, 40% 6px, 45% 0px,
+    50% 8px, 55% 0px, 60% 6px, 65% 0px, 70% 9px,
+    75% 0px, 80% 6px, 85% 0px, 90% 8px, 95% 0px,
+    100% 10px, 100% 100%, 0% 100%
+  );
+}
+
+/* Floating animation */
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+/* Magic UI Keyframes: Shimmer and Meteors */
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;
+  }
+}
+
+.animate-shimmer-slide {
+  animation: shimmer-slide var(--speed) ease-in-out infinite alternate;
+}
+
+.animate-spin-around {
+  animation: spin-around calc(var(--speed) * 2) infinite linear;
+}
+
+.animate-meteor {
+  animation: meteor linear infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
